@@ -1,6 +1,11 @@
 import Navbar from "@/components/common/navbar";
-import "./frontPage.css";
 
 export default function Home() {
-  return <Navbar />;
+  return (
+    <div className="shell">
+      <div className="page">
+        <Navbar />
+      </div>
+    </div>
+  );
 }
