@@ -1,0 +1,32 @@
+.navbar {
+  /* margin sets the component in the middle of page */
+  margin: 0 auto; 
+  border-radius: 20px;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 0 24px;
+  background: #1a1a1a;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.navLink {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  text-decoration: underline;
+}
