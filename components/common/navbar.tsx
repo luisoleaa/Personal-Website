@@ -2,9 +2,9 @@ import Link from "next/link";
 import styles from "./navbar.module.css";
 
 const navItems = [
-  { href: "/FrontPage", label: "Home" },
+  { href: "/frontPage", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ];
 
