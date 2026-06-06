@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/common/navbar";
-
+// Used to automate the making of pages since they have the same structure
 type DefaultNavPageProps = {
   eyebrow: string;
   title: string;
