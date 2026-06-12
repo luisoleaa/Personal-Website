@@ -1,18 +1,101 @@
 import Footer from "@/components/Footer";
+import PageBackground from "@/components/common/PageBackground";
 import Navbar from "@/components/common/navbar";
+import Link from "next/link";
+import Image from "next/image";
+
+const skills = [
+  "Git",
+  "React",
+  "Next.js",
+  "C/C++",
+  "Python",
+  "Java",
+  "TypeScript",
+  "JavaScript",
+  "HTML",
+  "CSS/TailWind CSS",
+];
+
+const experiences = [
+  {
+    title: "Full-stack web development",
+    text: "Building clean, responsive interfaces and connecting them to practical application logic.",
+  },
+  {
+    title: "Portfolio projects",
+    text: "Creating project pages, interactive UI, and polished site sections that present work clearly.",
+  },
+  {
+    title: "Collaboration-ready workflow",
+    text: "Working with reusable components, accessible navigation, and production build checks.",
+  },
+];
 
 export default function AboutPage() {
   return (
     <div className="shell">
       <div className="page">
+        <PageBackground />
         <Navbar />
-        <section className="mx-auto flex min-h-[55vh] max-w-3xl flex-col items-center justify-center px-4 text-center">
-          <h1 className="largeText">Luis Olea</h1>
-          <div className="largeText !text-[3.4rem] !bg-gradient-to-r !from-orange-300 !via-white !to-pink-300 !bg-clip-text !text-transparent">
-            FullStack Developer
-          </div>
-          <p className="smallText">crea</p>
-        </section>
+        <main className="aboutPageV2">
+          <section className="aboutLead" aria-labelledby="about-heading">
+            <div className="aboutLeadText">
+              <p className="aboutKicker">About me</p>
+              <h1 id="about-heading">Luis Olea</h1>
+              <p className="aboutRole">Full-stack developer</p>
+              <p className="aboutSummary">
+                I build useful, readable web experiences with thoughtful
+                interfaces and reliable frontend structure. I like turning ideas
+                into working products, then refining the details that make them
+                feel clear, fast, and easy to use.
+              </p>
+            </div>
+
+            <div className="animatedProfile">
+              <div className="aboutPhoto" aria-label="Profile picture">
+                <Image
+                  src="/profilePhoto.jpeg"
+                  alt="Luis Olea"
+                  fill
+                  sizes="(max-width: 820px) 72vw, 320px"
+                  priority
+                />
+              </div>
+            </div>
+          </section>
+
+          <section className="aboutResumeBand" aria-label="Resume download">
+            <div>
+              <span>Resume</span>
+              <p>Download a copy of my current resume.</p>
+            </div>
+            <Link href="/Resume.pdf" download>
+              Download PDF
+            </Link>
+          </section>
+
+          <section className="aboutDetails" aria-label="Skills and experience">
+            <div className="aboutSkillBlock">
+              <h2>Skills</h2>
+              <ul>
+                {skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="aboutExperienceBlock">
+              <h2>Experience</h2>
+              {experiences.map((experience) => (
+                <article key={experience.title}>
+                  <h3>{experience.title}</h3>
+                  <p>{experience.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        </main>
       </div>
       <Footer />
     </div>
