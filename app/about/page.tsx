@@ -43,12 +43,14 @@ export default function AboutPage() {
             <div className="aboutLeadText">
               <p className="aboutKicker">About me</p>
               <h1 id="about-heading">Luis Olea</h1>
-              <p className="aboutRole">Full-stack developer</p>
+              <p className="aboutRole !bg-gradient-to-r !from-blue-400 !via-white !to-purple-300 !bg-clip-text !text-transparent">
+                Full-stack developer
+              </p>
               <p className="aboutSummary">
-                I build useful, readable web experiences with thoughtful
-                interfaces and reliable frontend structure. I like turning ideas
-                into working products, then refining the details that make them
-                feel clear, fast, and easy to use.
+                I love building websites, apps, and tools with thoughtful tech
+                stacks and easy to navigate frontend structure. I prioritize
+                usefullness and value when designing/building products for
+                clients or solving problems.
               </p>
             </div>
 
