@@ -32,6 +32,7 @@ body {
 }
 
 .page {
+  position: relative;
   width: 100%;
   flex: 1;
   margin: 0;
@@ -43,6 +44,47 @@ body {
   background-size: 48px 48px;
   box-sizing: border-box;
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.page > :not(.pageBackground) {
+  position: relative;
+  z-index: 1;
+}
+
+.pageBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pageBackgroundOrange,
+.pageBackgroundPurple {
+  position: fixed;
+  display: block;
+  border-radius: 999px;
+  filter: blur(48px);
+  opacity: 0.36;
+  transform: translate3d(0, 0, 0);
+}
+
+.pageBackgroundOrange {
+  left: clamp(2rem, 9vw, 8rem);
+  bottom: clamp(6rem, 16vh, 12rem);
+  width: clamp(11rem, 24vw, 20rem);
+  height: clamp(11rem, 24vw, 20rem);
+  background:
+    radial-gradient(circle at 42% 42%, rgba(148, 163, 85, 0.58) 0%, rgba(197, 149, 73, 0.3) 42%, rgba(231, 165, 42, 0.1) 64%, transparent 78%);
+}
+
+.pageBackgroundPurple {
+  right: clamp(2rem, 9vw, 8rem);
+  top: clamp(5rem, 13vh, 10rem);
+  width: clamp(10rem, 21vw, 18rem);
+  height: clamp(10rem, 21vw, 18rem);
+  background:
+    radial-gradient(circle at 48% 48%, rgba(226, 206, 255, 0.54) 0%, rgba(157, 104, 255, 0.28) 44%, rgba(107, 58, 210, 0.09) 66%, transparent 80%);
 }
 
 .smallText{
@@ -63,4 +105,517 @@ body {
     font-size: 50px;
     font-family: var(--font-libre-baskerville), serif;
 
+}
+
+.profilePage {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 4rem 0 2rem;
+}
+
+.aboutPageV2 {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) 0 2rem;
+}
+
+.aboutLead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.65fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  border-bottom: 1px solid #2a2f32;
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.aboutKicker {
+  width: fit-content;
+  margin: 0 0 1.1rem;
+  border-bottom: 2px solid #69d2c8;
+  color: #69d2c8;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.aboutLead h1 {
+  margin: 0;
+  color: #f7f7f4;
+  font-family: var(--font-libre-baskerville), serif;
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 700;
+  line-height: 0.92;
+}
+
+.aboutRole {
+  margin: 1rem 0 1.4rem;
+  color: #ffb05c;
+  font-size: clamp(1.35rem, 3vw, 2.35rem);
+  font-weight: 700;
+}
+
+.aboutSummary {
+  max-width: 48rem;
+  margin: 0;
+  color: #cfd7d6;
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  line-height: 1.85;
+}
+
+.aboutPhotoWrap {
+  display: grid;
+  justify-items: end;
+}
+
+.aboutPhoto {
+  width: min(100%, 320px);
+  aspect-ratio: 1;
+  justify-self: center;
+  border: 1px solid #383838;
+  border-radius: 8px;
+  background: #151515;
+  overflow: hidden;
+  position: relative;
+}
+
+.aboutPhoto img {
+  object-fit: cover;
+}
+
+.aboutResumeBand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-bottom: 1px solid #2a2f32;
+  padding: 1.2rem 0;
+}
+
+.aboutResumeBand span {
+  color: #f7f7f4;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.aboutResumeBand p {
+  margin: 0.25rem 0 0;
+  color: #aeb8b7;
+}
+
+.aboutResumeBand a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #69d2c8;
+  border-radius: 999px;
+  color: #061414;
+  background: #69d2c8;
+  padding: 0.65rem 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.aboutResumeBand a:hover {
+  background: #8df1e7;
+  transform: translateY(-2px);
+}
+
+.aboutDetails {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.aboutDetails h2 {
+  margin: 0 0 1rem;
+  color: #f7f7f4;
+  font-size: 1.45rem;
+}
+
+.aboutSkillBlock ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aboutSkillBlock li {
+  border-bottom: 1px solid #263237;
+  color: #dbe3e2;
+  padding: 0.65rem 0;
+}
+
+.aboutExperienceBlock {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.aboutExperienceBlock article {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.45fr) minmax(0, 1fr);
+  gap: 1rem;
+  border-top: 1px solid #263237;
+  padding-top: 1rem;
+}
+
+.aboutExperienceBlock h3 {
+  margin: 0;
+  color: #ffb05c;
+  font-size: 1rem;
+}
+
+.aboutExperienceBlock p {
+  margin: 0;
+  color: #b9c3c2;
+  line-height: 1.7;
+}
+
+.aboutHero,
+.contactHero {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  gap: 3rem;
+  align-items: center;
+  min-height: 48vh;
+}
+
+.contactHero {
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+}
+
+.aboutIntro,
+.contactCopy,
+.panel,
+.resumeSection,
+.contactCard {
+  border: 1px solid #242424;
+  background: rgba(12, 12, 12, 0.82);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.32);
+}
+
+.aboutIntro,
+.contactCopy {
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.profilePortrait {
+  width: min(100%, 320px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  border: 1px solid #383838;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(248, 196, 113, 0.26), transparent 28%),
+    linear-gradient(135deg, #171717 0%, #101f20 45%, #26131a 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.profilePortrait::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+}
+
+.profilePortrait span {
+  color: #ffffff;
+  font-family: var(--font-libre-baskerville), serif;
+  font-size: clamp(4rem, 13vw, 7rem);
+  line-height: 1;
+}
+
+.profilePortraitSmall {
+  width: 96px;
+}
+
+.profilePortraitSmall span {
+  font-size: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: #f6c46d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.roleText {
+  margin: 0.5rem 0 1.25rem;
+  font-family: var(--font-libre-baskerville), serif;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  background: linear-gradient(90deg, #f7c56f, #ffffff, #f3a4bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.summaryText {
+  margin: 0;
+  max-width: 42rem;
+  color: #c9c9c9;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.8;
+}
+
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.75rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.72rem 1.1rem;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.primaryButton {
+  border: 1px solid #f0f0f0;
+  background: #f0f0f0;
+  color: #090909;
+}
+
+.secondaryButton {
+  border: 1px solid #3a3a3a;
+  background: #151515;
+  color: #f1f1f1;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.panel,
+.resumeSection,
+.contactCard {
+  border-radius: 8px;
+  padding: 1.4rem;
+}
+
+.panel h2,
+.resumeSection h2 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+}
+
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skillList span {
+  border: 1px solid #343434;
+  border-radius: 999px;
+  background: #101010;
+  color: #efefef;
+  padding: 0.5rem 0.72rem;
+  font-size: 0.92rem;
+}
+
+.experienceList {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.experienceList article {
+  border-left: 2px solid #f6c46d;
+  padding-left: 0.9rem;
+}
+
+.experienceList h3 {
+  margin: 0 0 0.28rem;
+  font-size: 1rem;
+}
+
+.experienceList p {
+  margin: 0;
+  color: #b5b5b5;
+  line-height: 1.65;
+}
+
+.resumeSection {
+  margin-top: 1rem;
+}
+
+.resumeFrame {
+  width: 100%;
+  height: clamp(420px, 68vh, 780px);
+  overflow: hidden;
+  border: 1px solid #303030;
+  border-radius: 8px;
+  background: #111111;
+}
+
+.resumeFrame object {
+  width: 100%;
+  height: 100%;
+}
+
+.resumeFrame p {
+  padding: 1rem;
+  color: #c9c9c9;
+}
+
+.resumeFrame a {
+  color: #f6c46d;
+}
+
+.contactLinks {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.7rem;
+}
+
+.contactLinks a {
+  display: grid;
+  gap: 0.24rem;
+  border: 1px solid #2b2b2b;
+  border-radius: 8px;
+  background: #101010;
+  color: #eeeeee;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.contactLinks a:hover {
+  border-color: #666666;
+  transform: translateY(-2px);
+}
+
+.contactLinks span {
+  color: #f6c46d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contactCard {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.animatedProfile {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  animation: profileEnter 650ms ease both;
+  transition: opacity 240ms ease, transform 240ms ease, filter 240ms ease;
+}
+
+.animatedProfile:hover {
+  opacity: 0;
+  transform: translateY(-14px) scale(0.96);
+  filter: blur(4px);
+}
+
+.animatedProfile p {
+  margin: 0;
+  color: #eeeeee;
+  font-weight: 700;
+}
+
+.qrWrap {
+  display: block;
+  border: 1px solid #343434;
+  border-radius: 8px;
+  background: #f4f4f4;
+  padding: 0.85rem;
+  transition: transform 180ms ease;
+}
+
+.qrWrap:hover {
+  transform: scale(1.025);
+}
+
+.qrWrap img {
+  display: block;
+  width: min(220px, 56vw);
+  height: auto;
+}
+
+@keyframes profileEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 820px) {
+  .page {
+    padding: 1.5rem 1rem;
+  }
+
+  .profilePage {
+    padding-top: 2.5rem;
+  }
+
+  .aboutHero,
+  .contactHero,
+  .aboutLead,
+  .aboutDetails,
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutPhotoWrap {
+    justify-items: start;
+  }
+
+  .aboutResumeBand {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .aboutExperienceBlock article {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .largeText {
+    justify-content: flex-start;
+    font-size: clamp(2.45rem, 12vw, 4rem);
+  }
+
+  .profilePortrait {
+    width: min(72vw, 280px);
+  }
 }
