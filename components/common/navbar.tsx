@@ -3,8 +3,8 @@ import styles from "./navbar.module.css";
 
 const navItems = [
   { href: "/frontPage", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
