@@ -11,6 +11,14 @@
   grid-template-columns: 7rem minmax(0, 1fr);
   gap: 1.5rem;
   position: relative;
+  opacity: 0.12;
+  filter: blur(4px);
+  transform: translateY(44px);
+  transition:
+    opacity 90ms linear,
+    filter 90ms linear,
+    transform 90ms linear;
+  will-change: opacity, filter, transform;
 }
 
 .timelineItem + .timelineItem {
@@ -202,5 +210,22 @@
   .imageWrapper {
     grid-row: auto;
     max-height: 12rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timelineItem {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (scripting: none) {
+  .timelineItem {
+    opacity: 1;
+    filter: none;
+    transform: none;
   }
 }
