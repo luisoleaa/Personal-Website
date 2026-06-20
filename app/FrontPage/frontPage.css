@@ -37,6 +37,7 @@ body {
 .resumeButton:hover {
   background-color: #1d4ed8;
 }
+
 .emailButton {
   display: inline-block;
   padding: 12px 20px;
@@ -54,19 +55,13 @@ body {
 }
 
 .circleShell {
-  position:relative;
+  position: relative;
   justify-content: center;
   justify-self: center;
   width: 550px;
   height: 550px;
   margin-top: 50px;
-
   padding: 3.25rem 3.25rem 1.75rem;
-  /* background:
-    linear-gradient(rgba(55, 155, 155, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(55, 55, 55, 0.055) 1px, transparent 1px),
-    #000; */
   border: 2px solid rgba(55, 55, 55, 0.055);
   border-radius: 50%;
-  
 }

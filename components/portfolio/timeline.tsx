@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import styles from "./timeline.module.css";
 
 type Project = {
+  id: number;
   name: string;
   date: string;
   description: string;
@@ -11,56 +15,37 @@ type Project = {
   skills: string;
 };
 
-const projects: Project[] = [
-  {
-    // have to say that im currently working on this - not done
-    name: "Sports Letterbox",
-    date: "June 2026",
-    description: "Uses the Letterbox framework but on Sports games.",
-    image: "/sportsLetterbox.png",
-    link: "https://github.com/luisoleaa/sportLetterbox",
-    skills: "React, TypeScript, Fullstack",
-  },
-  {
-    name: "CodeLab Nova",
-    date: "May 2026",
-    description:
-      "Is a dashboard/leaderboard for CodeLab's Open-Source projects to incentivize devlopers to contribute",
-    image: "/window.svg",
-    link: "https://github.com/Codelab-Davis/nova-os-dashboard",
-    skills: "React, TypeScript, Fullstack",
-  },
-  {
-    name: "Supply Spring - HackDavis Submission",
-    date: "May 2026",
-    description:
-      "Digitalizes the donation box for WellSpring Womens' Center in Sacramento, a client for 2026 HackDavis (Hackathon)",
-    image: "/WellSpring.jpeg",
-    link: "https://github.com/Ryanm2108/hack-davis-2026",
-    skills: "React, TypeScript, Fullstack",
-  },
-  {
-    name: "Car Deprication Calculator",
-    date: "March 2026",
-    description:
-      "Predicts how much a specific car make/model/year will depricate over a number of years",
-    image: "/linkedin.svg",
-    link: "https://github.com/luisoleaa/Car-Price-Depreciation-Predictor",
-    skills: "React, TypeScript, Fullstack",
-  },
-];
+type ProjectsResponse = {
+  projects?: Project[];
+  error?: string;
+};
+
+function parseDate(raw: string): { month: string; year: string } {
+  // Supabase timestamps come back as "YYYY-MM-DD HH:MM:SS"
+  if (/^\d{4}-\d{2}/.test(raw)) {
+    const d = new Date(raw.replace(" ", "T"));
+    return {
+      month: d.toLocaleString("en-US", { month: "long" }),
+      year: String(d.getFullYear()),
+    };
+  }
+  const [month, year = ""] = raw.split(" ");
+  return { month, year };
+}
 
 function ProjectTimelineItem({ project }: { project: Project }) {
-  const [month, year] = project.date.split(" ");
-  const skills: string[] = project.skills.split(", ");
+  const { month, year } = parseDate(project.date);
+  const skills = project.skills
+    .split(",")
+    .map((skill) => skill.trim())
+    .filter(Boolean);
 
   return (
-    <div className={styles.timelineItem}>
+    <div className={styles.timelineItem} data-reveal-item="true">
       <div className={styles.itemDate}>
         <p>{month}</p>
         <p>{year}</p>
       </div>
-      {/* so you can click on the entire project card for link */}
       <Link
         href={project.link}
         className={styles.projectCard}
@@ -77,7 +62,6 @@ function ProjectTimelineItem({ project }: { project: Project }) {
         </div>
         <h3 className={styles.title}>{project.name}</h3>
         <div className={styles.description}>{project.description}</div>
-        {/* make this list out skills individually in their own element -> all in an array */}
         <div className={styles.skills}>
           {skills.map((skill) => (
             <span key={skill}>{skill}</span>
@@ -89,10 +73,36 @@ function ProjectTimelineItem({ project }: { project: Project }) {
 }
 
 export default function Timeline() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadProjects() {
+      const response = await fetch("/api/projects");
+      const payload = (await response.json()) as ProjectsResponse;
+
+      if (!response.ok) {
+        throw new Error(payload.error ?? "Error loading projects.");
+      }
+
+      setProjects(payload.projects ?? []);
+      setError(null);
+    }
+
+    loadProjects().catch((error) => {
+      console.error(error);
+      setError("Unable to load projects right now.");
+    });
+  }, []);
+
   return (
-    <section className={styles.timeline} aria-label="Project timeline">
+    <section
+      className={styles.timeline}
+      aria-label="Project timeline"
+    >
+      {error && <p>{error}</p>}
       {projects.map((project) => (
-        <ProjectTimelineItem key={project.name} project={project} />
+        <ProjectTimelineItem key={project.id} project={project} />
       ))}
     </section>
   );
