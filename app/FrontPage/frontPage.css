@@ -22,36 +22,97 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.emailButton,
 .resumeButton {
-  display: inline-block;
-  padding: 12px 20px;
-  background-color: #7d78e0;
-  color: white;
-  text-decoration: none;
-  min-width: 185px;
-  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  font-weight: 600;
+  width: 190px;
+  padding: 0.9rem 1.5rem;
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  background:
+    linear-gradient(rgba(18, 18, 18, 0.72), rgba(18, 18, 18, 0.72)) padding-box,
+    linear-gradient(135deg, #f6ad55, #f687b3) border-box;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
+.emailButton span,
+.resumeButton span {
+  background: linear-gradient(90deg, #f6ad55, #f687b3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: var(--font-libre-baskerville), serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.emailButton:hover,
 .resumeButton:hover {
-  background-color: #1d4ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(246, 173, 85, 0.28);
 }
 
-.emailButton {
-  display: inline-block;
-  padding: 12px 20px;
-  background-color: #4e4b78;
-  color: white;
-  text-decoration: none;
-  min-width: 180px;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: 600;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.emailButton:hover {
-  background-color: #1d4ed8;
+.heroName {
+  animation: fadeUp 0.8s ease both;
+}
+
+.heroRole {
+  animation: fadeUp 0.8s ease 0.45s both;
+}
+
+.heroDesc {
+  animation: fadeUp 0.8s ease 0.55s both;
+}
+
+.heroButtons {
+  animation: fadeUp 0.8s ease 0.75s both;
+}
+
+@keyframes floatBob {
+  0%, 100% { transform: translateY(-50%); }
+  50%       { transform: translateY(calc(-50% - 18px)); }
+}
+
+.floatingImg {
+  position: absolute;
+  right: -5.5rem;
+  top: 50%;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+  filter:
+    drop-shadow(0 0 14px rgba(246, 173, 85, 0.7))
+    drop-shadow(0 0 36px rgba(246, 135, 179, 0.4))
+    drop-shadow(0 0 64px rgba(246, 173, 85, 0.18));
+  animation:
+    fadeUp 0.8s ease 0.9s both,
+    floatBob 5s ease-in-out 1.7s infinite;
+}
+
+@media (max-width: 900px) {
+  .floatingImg {
+    display: none;
+  }
 }
 
 .circleShell {
