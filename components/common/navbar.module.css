@@ -58,3 +58,14 @@
 .navLink:focus-visible::after {
   width: 100%;
 }
+
+@media (max-width: 820px) {
+  .navbar {
+    min-height: 56px;
+    padding: 0 14px;
+  }
+
+  .navLinks {
+    gap: 18px;
+  }
+}
