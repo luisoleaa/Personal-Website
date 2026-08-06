@@ -47,10 +47,14 @@ export default function AboutPage() {
                 Full-stack developer
               </p>
               <p className="aboutSummary">
-                I love building websites, apps, and tools with thoughtful tech
-                stacks and easy to navigate frontend structure. I prioritize
-                usefullness and value when designing/building products for
-                clients or solving problems.
+                I love building websites, apps, and tools that bring real value
+                to users.
+                <br />A little about me:
+                <li>
+                  Taught a Python Intro to Programming class to 8/9th Graders
+                </li>
+                <li>Love sports: Volleyball, Basketball, & Soccer</li>
+                <li>Favorite Food: Hotdogs</li>
               </p>
             </div>
 

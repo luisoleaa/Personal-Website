@@ -24,7 +24,7 @@ export default function ContactPage() {
               </h1>
               <p className="summaryText">
                 Reach out about projects, internships, collaborations, or any
-                questions about my work.
+                questions about me or my work.
               </p>
               <div className="contactLinks" aria-label="Contact information">
                 <Link href="mailto:luisolea097@gmail.com">
