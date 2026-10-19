@@ -1,0 +1,16 @@
+.card {
+  border-top: var(--rule);
+  padding-top: 24px;
+}
+
+.title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--text-strong);
+}
+
+.desc {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+}

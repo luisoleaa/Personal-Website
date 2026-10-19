@@ -1,24 +1,45 @@
-import Footer from "@/components/Footer";
-import PageBackground from "@/components/common/PageBackground";
-import Navbar from "@/components/common/navbar";
-import Timeline from "@/components/portfolio/timeline";
+import SiteHeader from "@/components/layout/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import CandleRack from "@/components/portfolio/CandleRack";
+import ProjectFilters from "@/components/portfolio/ProjectFilters";
+import { getProjects } from "@/lib/projects";
+import { getContributionDays } from "@/lib/contributions";
+import { sampleDays } from "@/lib/ascii";
+import styles from "./page.module.css";
 
-export default function PortfolioPage() {
+async function getContributions(): Promise<{ days: boolean[]; live: boolean }> {
+  try {
+    return { days: await getContributionDays(), live: true };
+  } catch {
+    return { days: sampleDays(), live: false };
+  }
+}
+
+export default async function PortfolioPage() {
+  const [projects, contributions] = await Promise.all([
+    getProjects(),
+    getContributions(),
+  ]);
+
   return (
-    <div className="shell">
-      <div className="page">
-        <PageBackground />
-        <Navbar />
-        <section className="mx-auto flex min-h-[25vh] max-w-3xl flex-col items-center justify-center px-4 text-center">
-          <h1 className="largeText !text-[3.4rem] !bg-gradient-to-r !from-orange-300 !via-white !to-pink-300 !bg-clip-text !text-transparent">
-            Portfolio
-          </h1>
+    <div>
+      <SiteHeader current="portfolio" />
+      <main className={styles.main}>
+        <section className={styles.intro}>
+          <div className={styles.introLeft}>
+            <h1 className={styles.title}>Works</h1>
+            <p className={styles.subtitle}>
+              Everything I&apos;ve built, from a neural network that plays
+              Tetris to web apps people use for real work.
+            </p>
+          </div>
+          <CandleRack days={contributions.days} live={contributions.live} />
         </section>
-        <section>
-          <Timeline />
+        <section aria-label="Projects" className={styles.projects}>
+          <ProjectFilters projects={projects} />
         </section>
-      </div>
-      <Footer />
+      </main>
+      <SiteFooter current="portfolio" />
     </div>
   );
 }

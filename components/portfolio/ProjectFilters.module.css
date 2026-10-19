@@ -1,0 +1,54 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px 32px;
+  margin-bottom: 40px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filterButton {
+  min-height: 46px;
+  padding: 0 20px;
+  font: inherit;
+  font-size: 19px;
+  cursor: pointer;
+  border-radius: 0;
+  background: transparent;
+  border: 2px solid var(--lead);
+  color: var(--text);
+}
+
+.filterButton:hover,
+.filterButton:focus-visible {
+  border-color: var(--gold);
+  color: #ffffff;
+}
+
+.filterButtonActive {
+  background: var(--stone-raised-hi);
+  border-color: var(--gold);
+  color: var(--text-strong);
+}
+
+.filterCount {
+  color: var(--text-muted);
+}
+
+.status {
+  margin: 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  gap: 56px 48px;
+}

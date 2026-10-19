@@ -1,0 +1,39 @@
+.main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 48px 80px;
+  padding: 80px 0 72px;
+  border-bottom: var(--rule);
+}
+
+.introLeft {
+  flex: 1 1 440px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-title), serif;
+  font-weight: 400;
+  font-size: clamp(80px, 9vw, 136px);
+  line-height: 0.9;
+  color: var(--gold);
+}
+
+.subtitle {
+  margin: 28px 0 0;
+  max-width: 36ch;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.projects {
+  padding: 40px 0 112px;
+}

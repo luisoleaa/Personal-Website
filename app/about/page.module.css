@@ -1,0 +1,89 @@
+.main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Intro: bio + hymn board */
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 56px 88px;
+  padding: 80px 0 104px;
+}
+
+.bioCol {
+  flex: 1 1 600px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 36px;
+  font-family: var(--font-title), serif;
+  font-weight: 400;
+  font-size: clamp(80px, 9vw, 136px);
+  line-height: 0.9;
+  color: var(--gold);
+}
+
+.bioLead,
+.bioP {
+  margin: 0;
+  max-width: 56ch;
+  font-size: 23px;
+  line-height: 1.65;
+}
+
+.bioP {
+  margin-top: 20px;
+}
+
+.dropCap {
+  float: left;
+  margin: 0.06em 0.12em 0 0;
+  font-family: var(--font-title), serif;
+  font-size: 4.2em;
+  line-height: 0.8;
+  color: #e0343f;
+}
+
+/* Off the keyboard */
+.keyboard {
+  padding: 0 0 112px;
+}
+
+.sectionTitle {
+  margin: 0 0 36px;
+  font-family: var(--font-title), serif;
+  font-weight: 400;
+  font-size: clamp(48px, 4.6vw, 68px);
+  line-height: 1;
+  color: var(--gold);
+}
+
+.interestGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 40px 56px;
+}
+
+/* Labyrinth */
+.labyrinthSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 48px 72px;
+  padding: 72px 0 96px;
+  border-top: var(--rule);
+}
+
+/* Contact */
+.contactSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 48px 88px;
+  padding: 72px 0 112px;
+  border-top: var(--rule);
+}

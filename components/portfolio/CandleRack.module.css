@@ -1,0 +1,28 @@
+.wrap {
+  flex: 1 1 600px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-title), serif;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.caption {
+  margin: 12px 0 22px;
+  font-style: italic;
+}
+
+.rackWrap {
+  overflow-x: auto;
+}
+
+.note {
+  margin: 14px 0 0;
+  font-size: 16px;
+  color: var(--text-muted);
+}

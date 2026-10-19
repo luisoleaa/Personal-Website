@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/design-handoff
 /.pnp
 .pnp.*
 .yarn/*
@@ -26,6 +27,7 @@
 # env files (can opt-in for committing if needed)
 .env.local
 .env*.local
+
 
 # debug
 npm-debug.log*

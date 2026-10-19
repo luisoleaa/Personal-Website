@@ -1,0 +1,45 @@
+.header {
+  border-bottom: var(--rule);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 32px;
+}
+
+.name {
+  font-family: var(--font-title), serif;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 36px;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text);
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--gold);
+}
+
+.navLinkCurrent {
+  color: var(--gold);
+  text-underline-offset: 6px;
+  text-decoration: underline;
+}

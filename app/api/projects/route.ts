@@ -1,18 +1,7 @@
 import { NextResponse } from "next/server";
-import supabase from "@/lib/supabase-client";
+import { getProjects } from "@/lib/projects";
+
 export async function GET() {
-  const { data: projects, error } = await supabase
-    .from("Projects")
-    .select("id, name, date, description, image, link, skills")
-    .order("date", { ascending: false });
-
-  if (error) {
-    console.error("[/api/Projects] Supabase error:", error);
-    return NextResponse.json(
-      { error: "Error loading projects.", detail: error.message },
-      { status: 500 },
-    );
-  }
-
+  const projects = await getProjects();
   return NextResponse.json({ projects });
 }

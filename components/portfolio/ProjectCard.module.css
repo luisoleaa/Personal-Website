@@ -1,0 +1,83 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-top: var(--rule);
+  padding-top: 22px;
+}
+
+.frame {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--stone-deep);
+  border: 1px solid var(--lead);
+  outline: 1px solid #2e2620;
+  outline-offset: -10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.frameImage {
+  object-fit: cover;
+}
+
+.emblem {
+  white-space: pre;
+  font-family: var(--font-ascii), ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--stone);
+}
+
+.emblemCaption {
+  font-style: italic;
+  font-size: 15px;
+  color: #6e6458;
+}
+
+.headRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 16px;
+  margin-top: 20px;
+}
+
+.name {
+  margin: 0;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--text-strong);
+}
+
+.date {
+  font-style: italic;
+  font-size: 17px;
+  color: var(--text-muted);
+}
+
+.desc {
+  margin: 10px 0 0;
+  color: var(--text-soft);
+}
+
+.skills {
+  margin: 12px 0 0;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 10px;
+  font-size: 19px;
+}

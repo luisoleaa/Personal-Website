@@ -1,0 +1,34 @@
+.plaque {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 28px;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 21px;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.plaque:hover,
+.plaque:focus-visible {
+  border-color: var(--gold);
+  color: #ffffff;
+}
+
+.primary {
+  border: 2px solid var(--gold);
+  background: var(--stone-raised-hi);
+  color: var(--text-strong);
+}
+
+.secondary {
+  border: 2px solid var(--stone);
+  background: var(--stone-raised);
+  color: var(--text);
+}
+
+.quiet {
+  border: 2px solid var(--lead);
+  background: transparent;
+  color: var(--text);
+}

@@ -1,0 +1,54 @@
+.left {
+  flex: 1 1 440px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-title), serif;
+  font-weight: 400;
+  font-size: clamp(56px, 5.4vw, 80px);
+  line-height: 1;
+  color: var(--gold);
+}
+
+.copy {
+  margin: 20px 0 0;
+  max-width: 36ch;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+  max-width: 460px;
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  padding: 0 20px;
+  border: 2px solid var(--stone);
+  background: var(--stone-raised);
+  color: var(--text);
+}
+
+.link:hover,
+.link:focus-visible {
+  border-color: var(--gold);
+  color: #ffffff;
+}
+
+.linkValue {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.right {
+  flex: 1 1 520px;
+  min-width: 0;
+}
