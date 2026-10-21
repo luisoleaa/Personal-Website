@@ -21,7 +21,7 @@ const LINKS = [
   {
     label: "Résumé",
     value: "PDF",
-    href: "/Resume.pdf",
+    href: "/Olea_Luis_Resume.pdf",
     download: true,
   },
 ];
